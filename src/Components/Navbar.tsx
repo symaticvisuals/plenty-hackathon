@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import PlentyLogo from "../assets/images/plenty-beta-logo.svg";
 import {
-  MdOutlineKeyboardArrowUp,
+  // MdOutlineKeyboardArrowUp,
   MdOutlineKeyboardArrowDown,
 } from "react-icons/md";
 import {MdOutlineMenu} from "react-icons/md";
@@ -9,7 +9,7 @@ import {IoMdAdd} from "react-icons/io";
 import { MdSettings } from "react-icons/md";
 
 function Navbar() {
-    const [navigationtabs, setNavigationtabs]= useState([
+    const [navigationtabs, ]= useState([
         {
             name:"Trade"
         },

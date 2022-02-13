@@ -5,7 +5,7 @@ import { HiTruck } from "react-icons/hi";
 import { MdOutlineLocalFireDepartment } from "react-icons/md";
 import { IoIosTimer } from "react-icons/io";
 function FrontPage() {
-  const [pageBar, setPageBar] = React.useState([
+  const [pageBar, ] = React.useState([
     {
       name: "Price",
       Icon: <CgDollar />,
