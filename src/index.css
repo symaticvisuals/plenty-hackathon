@@ -1,3 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base{
+  :root{
+    --color-body-fill: #F9FAFA;
+    --color-body-text: #4e5d78;
+    --color-body-span: #4e5d78;
+    --color-body-hr: #d2d2d2;
+    --color-body-logo: #5603AD;
+    --color-text-inverted:#fff;
+    --color-body-logo-frontpage: #FFFFFF;
+    --color-bg-primary: #FFF;
+    --color-bg-alt: #FFF;
+    --color-bg-light: #F9FAFA;
+    --color-border-dark:rgba(44, 9, 11, 0.08);
+    --color-border:rgba(44, 9, 11, 0.08);
+    --color-fill-frontpage:#7028e4;
+    --color-button-frontpage: #823DE0;
+    --color-dropdown:#fff;
+    --color-dropdown-light: #eee;
+    --color-icon-fill: #6b10f0;
+    --color-icon-fill-hover: #6202ef;
+    --color-icon-fill-bg:#f4edfb;
+    --color-icon-bg-start:#D2D5DB;
+    --color-icon-bg-end:#D2D5DB;
+    --color-icon-bg-hover-start:#7028E4;
+    --color-icon-bg-hover-end:#E5B2CA;
+    --color-border-checkbox:#e5dded;
+    --color-button-primary: #6202ef;
+  }
+  .dark-theme{
+     --color-body-fill: linearGradient(108.61deg, #04152E -24.15%, #343C49 99.76%);
+    --color-body-text: #FFFFFF;
+    --color-body-span: #FFFFFF;
+    --color-body-hr: #f1f1f1;
+    --color-body-logo: #FFFFFF;
+    --color-text-inverted:#0e0e0e;
+    --color-body-logo-frontpage: #FFFFFF;
+    --color-bg-primary: #201c41;
+     --color-fill-frontpage:#0d0831;
+    --color-bg-alt: #252146;
+    --color-bg-light: #343052;
+    --color-border-dark:rgba(44, 9, 11, 0.08);
+    --color-border:rgba(44, 9, 11, 0.08);
+    --color-button-frontpage: #19263A;
+    --color-dropdown:#514b6b;
+    --color-dropdown-light: #5e6884;
+    --color-icon-fill: #ceaefe;
+    --color-icon-fill-bg:#2a1f53;
+    --color-icon-fill-hover: #6202ef;
+    --color-icon-bg-start:#D2D5DB;
+    --color-icon-bg-end:#D2D5DB;
+    --color-icon-bg-hover-start:#7028E4;
+    --color-icon-bg-hover-end:#E5B2CA;
+    --color-border-checkbox:#e5dded;
+    --color-button-primary: #c8a4fe;
+  }
+}
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
