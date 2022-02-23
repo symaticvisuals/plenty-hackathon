@@ -38,8 +38,8 @@ function FrontPage() {
     },
   ]);
   return (
-    <div>
-      <div className="min-h-[55vh] bg-skin-fill-frontpage flex flex-col justify-center items-center bg-frontpage bg-cover md:bg-contain bg-bottom sm:min-h-[40vh] bg-no-repeat py-8">
+    <div className="bg-skin-main-muted h-auto">
+      <div className="min-h-[65vh]  bg-skin-primary dark:bg-skin-main-muted flex flex-col justify-center items-center bg-frontpage bg-cover md:bg-contain bg-bottom sm:min-h-[50vh] bg-no-repeat py-8">
         <h4 className="font-sans text-xl text-skin-body-logo-frontpage">
           Total Value Locked
         </h4>
@@ -50,9 +50,11 @@ function FrontPage() {
           Trade tokens and earn interest by staking. There is plenty of DeFi to
           explore on Tezos.
         </h4>
-        <button className="bg-white py-3 px-4 mt-3 rounded-md font-sans font-semibold text-skin-fill-frontpage">Enter App</button>
+        <button className="bg-white py-3 px-4 mt-3 rounded-md font-sans font-semibold text-skin-fill-frontpage hover:animate-pulse">
+          Enter App
+        </button>
       </div>
-      <div className="flex items-center justify-around">
+      <div className="flex items-center justify-around bg-skin-main py-2">
         <div className="px-8 grid grid-cols-6 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 w-full">
           {pageBar.map((pageBar, index) => (
             <FrontPageBar pageBar={pageBar} />
@@ -75,16 +77,18 @@ const FrontPageBar = ({ pageBar }: pageBarProps) => {
   return (
     <div className="flex items-start my-4">
       <div className="mr-2">
-        <div className="p-2 rounded-md text-skin-icon-fill bg-skin-icon-fill-bg">
+        <div className="p-2 rounded-md text-skin-primary bg-skin-primary-muted">
           {pageBar.Icon}
         </div>
       </div>
       <div className="flex flex-col">
-        <h5 className="font-sans font-medium text-skin-body-text text-left">
+        <h5 className="font-sans text-skin-inverted-dark text-left font-semibold ">
           {pageBar.value}
         </h5>
         <div>
-          <h1 className="font-mulish text-xs font-medium">{pageBar.name}</h1>
+          <h1 className="font-mulish text-xs font-medium text-skin-inverted-muted text-left">
+            {pageBar.name}
+          </h1>
         </div>
       </div>
     </div>

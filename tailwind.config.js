@@ -1,5 +1,7 @@
 module.exports = {
+  mode: "jit",
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  darkMode: "class",
   theme: {
     fontFamily: {
       sans: ["DM Sans", "sans-serif"],
@@ -20,6 +22,10 @@ module.exports = {
         "border-dark": "var(--color-border-dark)",
         "border-main": "var(--color-border)",
         "border-checkbox": "var(--color-border-checkbox)",
+
+        primary: "var(--color-text-primary)",
+        "primary-muted": "var(--color-text-primary-muted)",
+        "inverted-dark": "var(--color-text-inverted-dark)",
       },
       textColor: {
         skin: {
@@ -35,6 +41,13 @@ module.exports = {
           "text-inverted": "var(--color-text-inverted)",
           "body-logo-frontpage": "var(--color-body-logo-frontpage)",
           "fill-frontpage": "var(--color-fill-frontpage)",
+          "text-subtext": "var(--color-text-subtext)",
+
+          primary: "var(--color-text-primary)",
+          "primary-muted": "var(--color-text-primary-muted)",
+          inverted: "var(--color-text-inverted)",
+          "inverted-dark": "var(--color-text-inverted-dark)",
+          "inverted-muted": "var(--color-text-inverted-muted)",
         },
       },
       backgroundColor: {
@@ -56,6 +69,11 @@ module.exports = {
           "icon-bg-hover-end": "var(--color-icon-bg-hover-end)",
           "button-primary": "var(--color-button-primary)",
           "fill-frontpage": "var(--color-fill-frontpage)",
+
+          primary: "var(--color-background-primary)",
+          "primary-muted": "var(--color-background-primary-muted)",
+          main: "var(--color-background-main)",
+          "main-muted": "var(--color-background-main-muted)",
         },
       },
     },

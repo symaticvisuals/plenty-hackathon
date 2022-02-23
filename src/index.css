@@ -2,73 +2,98 @@
 @tailwind components;
 @tailwind utilities;
 
-
-@layer base{
-  :root{
-    --color-body-fill: #F9FAFA;
+@layer base {
+  :root {
+    --color-body-fill: #f9fafa;
     --color-body-text: #4e5d78;
     --color-body-span: #4e5d78;
     --color-body-hr: #d2d2d2;
-    --color-body-logo: #5603AD;
-    --color-text-inverted:#fff;
-    --color-body-logo-frontpage: #FFFFFF;
-    --color-bg-primary: #FFF;
-    --color-bg-alt: #FFF;
-    --color-bg-light: #F9FAFA;
-    --color-border-dark:rgba(44, 9, 11, 0.08);
-    --color-border:rgba(44, 9, 11, 0.08);
-    --color-fill-frontpage:#7028e4;
-    --color-button-frontpage: #823DE0;
-    --color-dropdown:#fff;
+    --color-body-logo: #5603ad;
+    --color-text-inverted: #fff;
+    --color-body-logo-frontpage: #ffffff;
+    --color-bg-primary: #fff;
+    --color-bg-alt: #fff;
+    --color-bg-light: #f9fafa;
+    --color-border-dark: rgba(44, 9, 11, 0.08);
+    --color-border: rgba(44, 9, 11, 0.08);
+    --color-fill-frontpage: #7028e4;
+    --color-button-frontpage: #823de0;
+    --color-dropdown: #fff;
     --color-dropdown-light: #eee;
     --color-icon-fill: #6b10f0;
     --color-icon-fill-hover: #6202ef;
-    --color-icon-fill-bg:#f4edfb;
-    --color-icon-bg-start:#D2D5DB;
-    --color-icon-bg-end:#D2D5DB;
-    --color-icon-bg-hover-start:#7028E4;
-    --color-icon-bg-hover-end:#E5B2CA;
-    --color-border-checkbox:#e5dded;
+    --color-icon-fill-bg: #f4edfb;
+    --color-icon-bg-start: #d2d5db;
+    --color-icon-bg-end: #d2d5db;
+    --color-icon-bg-hover-start: #7028e4;
+    --color-icon-bg-hover-end: #e5b2ca;
+    --color-border-checkbox: #e5dded;
     --color-button-primary: #6202ef;
+    --color-text-subtext: #8a94a6;
+
+    --color-text-primary: #6202ef;
+    --color-text-primary-muted: #f4edfb;
+    --color-text-inverted: #fff;
+    --color-text-inverted-dark: #4e5d78;
+    --color-text-inverted-muted: #8a94ba;
+    --color-background-primary: #6202ef;
+    --color-background-primary-muted: #f4edfb;
+    --color-background-main: #fff;
+    --color-background-main-muted: #f9fafa;
   }
-  .dark-theme{
-     --color-body-fill: linearGradient(108.61deg, #04152E -24.15%, #343C49 99.76%);
-    --color-body-text: #FFFFFF;
-    --color-body-span: #FFFFFF;
+  .dark {
+    --color-body-fill: linearGradient(
+      108.61deg,
+      #04152e -24.15%,
+      #343c49 99.76%
+    );
+    --color-body-text: #ffffff;
+    --color-body-span: #ffffff;
     --color-body-hr: #f1f1f1;
-    --color-body-logo: #FFFFFF;
-    --color-text-inverted:#0e0e0e;
-    --color-body-logo-frontpage: #FFFFFF;
+    --color-body-logo: #ffffff;
+    --color-text-inverted: #0e0e0e;
+    --color-body-logo-frontpage: #ffffff;
     --color-bg-primary: #201c41;
-     --color-fill-frontpage:#0d0831;
+    --color-fill-frontpage: #0d0831;
     --color-bg-alt: #252146;
     --color-bg-light: #343052;
-    --color-border-dark:rgba(44, 9, 11, 0.08);
-    --color-border:rgba(44, 9, 11, 0.08);
-    --color-button-frontpage: #19263A;
-    --color-dropdown:#514b6b;
+    --color-border-dark: rgba(44, 9, 11, 0.08);
+    --color-border: rgba(44, 9, 11, 0.08);
+    --color-button-frontpage: #19263a;
+    --color-dropdown: #514b6b;
     --color-dropdown-light: #5e6884;
     --color-icon-fill: #ceaefe;
-    --color-icon-fill-bg:#2a1f53;
+    --color-icon-fill-bg: #2a1f53;
     --color-icon-fill-hover: #6202ef;
-    --color-icon-bg-start:#D2D5DB;
-    --color-icon-bg-end:#D2D5DB;
-    --color-icon-bg-hover-start:#7028E4;
-    --color-icon-bg-hover-end:#E5B2CA;
-    --color-border-checkbox:#e5dded;
+    --color-icon-bg-start: #d2d5db;
+    --color-icon-bg-end: #d2d5db;
+    --color-icon-bg-hover-start: #7028e4;
+    --color-icon-bg-hover-end: #e5b2ca;
+    --color-border-checkbox: #e5dded;
     --color-button-primary: #c8a4fe;
+    --color-text-subtext: #ceaefe;
+
+    --color-text-primary: #ceaefe;
+    --color-text-primary-muted: #2f2551;
+    --color-text-inverted: #0d0831;
+    --color-text-inverted-dark: #fff;
+    --color-text-inverted-muted: #ceaefe;
+    --color-background-primary: #ceaefe;
+    --color-background-primary-muted: #2f2551;
+    --color-background-main: #201c41;
+    --color-background-main-muted: #0d0831;
   }
 }
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
