@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { MdArrowForwardIos } from "react-icons/md";
 
 import { MdKeyboardArrowDown } from "react-icons/md";
@@ -40,6 +40,13 @@ const tokenContext = React.createContext<SwapProps>({
  
 
 });
+const modalContext = React.createContext<{
+  open: boolean;
+  setOpen: Function;
+}>({
+  open: false,
+  setOpen: () => {}
+});
 function Swap() {
   const [activeTab, setActiveTab] = useState(0);
   const [tokens, setTokens] = useState(tokenValues);
@@ -49,12 +56,15 @@ function Swap() {
   });
   const [selectedToken1] = useState(tokens[0]);
   const [selectedToken2] = useState(tokens[1]);
+  const [open, setOpen] = useState(false);
   
   return (
     <div className="flex items-center justify-center h-screen  max-h-screen overflow-hidden">
+      <modalContext.Provider value={{ open, setOpen }}>
       <tokenContext.Provider value={{ selectedTokens,  setSelectedTokens }}>
         <SelectTokenModal />
       </tokenContext.Provider>
+      </modalContext.Provider>
       <div className="flex flex-col">
         <div className="flex items-center">
           <h2 className="font-sans font-medium text-l text-skin-inverted-dark">
@@ -62,7 +72,7 @@ function Swap() {
           </h2>
           <MdArrowForwardIos className="ml-2 text-skin-inverted-dark" />
         </div>
-        <div className="mt-3 min-h-[40vh] bg-skin-main w-[24em] max-w-[24em] rounded-2xl border shadow-md pt-8 px-4">
+        <div className="mt-3 min-h-[40vh] bg-skin-main w-[24em] max-w-[24em] rounded-2xl border dark:border-0 shadow-md pt-8 px-4">
           <div className="flex gap-3">
             <div
               className={`px-4 pb-5 font-sans font-bold text-skin-inverted-dark cursor-pointer ${
@@ -85,8 +95,10 @@ function Swap() {
           </div>
 
           <hr></hr>
-          <div className="p-4 bg-skin-main-muted mt-4 border flex rounded-lg justify-between items-center hover:ring-1 hover:ring-inverted-dark mb-1">
-            <div className="p-2 bg-skin-main h-10 flex gap-2 items-center justify-center shadow-sm w-48 rounded-md">
+          <div className="p-4 bg-skin-main-muted mt-4 border dark:border-0 flex rounded-lg justify-between items-center hover:ring-1 hover:ring-inverted-dark mb-1">
+            <div className="p-2 bg-skin-main h-10 flex gap-2 items-center justify-center shadow-sm w-48 rounded-md" onClick={()=>{
+              setOpen(true);
+            }}> 
               <img src={selectedToken1.icon} className="object-contain w-6" />
               <p className="font-sans font-semibold text-skin-inverted-dark">
                 {selectedToken1.name}
@@ -103,11 +115,11 @@ function Swap() {
           </div>
 
           <div className="flex justify-center items-center text-3xl text-skin-inverted-dark mt-1">
-            <div className="bg-white z-20 absolute rounded-full">
-              <HiArrowCircleDown className=" transform hover:rotate-180 duration-100 transition-all " />
+            <div className="bg-skin-inverted z-20 absolute rounded-full">
+              <HiArrowCircleDown className=" transform hover:rotate-180 duration-100 transition-all text-skin-inverted-dark" />
             </div>
           </div>
-          <div className="p-4 bg-skin-main-muted  border flex rounded-lg justify-between items-center hover:ring-1 hover:ring-inverted-dark">
+          <div className="p-4 bg-skin-main-muted  border dark:border-0 flex rounded-lg justify-between items-center hover:ring-1 hover:ring-inverted-dark">
             <div className="p-2 bg-skin-main h-10 flex gap-2 items-center justify-center shadow-sm w-auto rounded-md">
               <img src={selectedToken2.icon} className="object-contain w-6" />
               <p className="font-sans font-semibold text-skin-inverted-dark">
@@ -132,12 +144,13 @@ function Swap() {
 export default Swap;
 
 const SelectTokenModal = () => {
+  const { open, setOpen } = useContext(modalContext);
   const {selectedTokens, setSelectedTokens} = React.useContext(tokenContext);
-  const [isOpen, setIsOpen] = useState(true);
+ 
   return (
     <div
       className={`absolute  h-screen w-full bg-slate-800/60 z-50 flex items-center justify-center backdrop-blur-sm ${
-        isOpen === false ? "hidden" : ""
+        open === false ? "hidden" : ""
       }`}>
       <div className="w-[400px] h-[500px] bg-skin-main relative rounded-2xl py-8 px-8">
         <div className="flex items-center justify-between">
@@ -147,7 +160,7 @@ const SelectTokenModal = () => {
           <MdOutlineClose
             className="text-xl text-skin-inverted-dark cursor-pointer"
             onClick={() => {
-              setIsOpen(false);
+              setOpen(false);
             }}
           />
         </div>
