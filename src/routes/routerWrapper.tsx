@@ -1,25 +1,32 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { BrowserRouter as Router, Navigate, Route, Routes } from 'react-router-dom'
 import FirstTimeDisclaimer from '../Pages/FirstTimeDisclaimer'
 import Home from '../Pages/Home'
 import Cookies from 'js-cookie'
 import MainLayout from '../Pages/MainLayout'
 import Swap from '../Pages/Swap'
+import Trade from '../Pages/Trade'
 function Wrapper() {
   const [firstTimeDisclaimer] = React.useState(Cookies.get('firstTimeDisclaimer'));
+  
+
   return (
     <Router>
       <Routes>
         {firstTimeDisclaimer === "true" && (
           <>
-            <Route path="/" element={<MainLayout />}>
+            <Route path="*" element={<MainLayout />}>
               <Route path="*" element={<Navigate to="/home" />} />
               <Route path="home" element={<Home />} />
-              <Route path='swap' element={<Swap/>}/>
+              <Route path='trade' element={<Trade/>}>
+                <Route path='*' element={<Swap />} />
+                </Route>
             </Route>
           </>
         )}
+        {!firstTimeDisclaimer ? (
         <Route path="/" element={<FirstTimeDisclaimer />}></Route>
+        ):<></>}
       </Routes>
     </Router>
   );

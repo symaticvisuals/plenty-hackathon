@@ -7,17 +7,15 @@ import { MdOutlineClose } from "react-icons/md";
 import { BsSearch } from "react-icons/bs";
 import { tokenValues } from "../data/tokens";
 
-
-
 interface SwapProps {
   selectedTokens: {
-    from:Object,
-    to:Object
-  },
-  setSelectedTokens: Function,
+    from: Object;
+    to: Object;
+  };
+  setSelectedTokens: Function;
 }
 const tokenContext = React.createContext<SwapProps>({
-  selectedTokens : {
+  selectedTokens: {
     from: {
       name: "",
       icon: "",
@@ -36,18 +34,16 @@ const tokenContext = React.createContext<SwapProps>({
       name: string;
       icon: string;
     }
-  ) => {}
- 
-
+  ) => {},
 });
 const modalContext = React.createContext<{
   open: boolean;
   setOpen: Function;
 }>({
   open: false,
-  setOpen: () => {}
+  setOpen: () => {},
 });
-function Swap() {
+function Liquidity() {
   const [activeTab, setActiveTab] = useState(0);
   const [tokens, setTokens] = useState(tokenValues);
   const [selectedTokens, setSelectedTokens] = useState({
@@ -57,13 +53,13 @@ function Swap() {
   const [selectedToken1] = useState(tokens[0]);
   const [selectedToken2] = useState(tokens[1]);
   const [open, setOpen] = useState(false);
-  
+
   return (
     <div className="flex items-center justify-center h-screen  max-h-screen overflow-hidden">
       <modalContext.Provider value={{ open, setOpen }}>
-      <tokenContext.Provider value={{ selectedTokens,  setSelectedTokens }}>
-        <SelectTokenModal />
-      </tokenContext.Provider>
+        <tokenContext.Provider value={{ selectedTokens, setSelectedTokens }}>
+          <SelectTokenModal />
+        </tokenContext.Provider>
       </modalContext.Provider>
       <div className="flex flex-col">
         <div className="flex items-center">
@@ -96,9 +92,11 @@ function Swap() {
 
           <hr></hr>
           <div className="p-4 bg-skin-main-muted mt-4 border dark:border-0 flex rounded-lg justify-between items-center hover:ring-1 hover:ring-inverted-dark mb-1">
-            <div className="p-2 bg-skin-main h-10 flex gap-2 items-center justify-center shadow-sm w-48 rounded-md" onClick={()=>{
-              setOpen(true);
-            }}> 
+            <div
+              className="p-2 bg-skin-main h-10 flex gap-2 items-center justify-center shadow-sm w-48 rounded-md"
+              onClick={() => {
+                setOpen(true);
+              }}>
               <img src={selectedToken1.icon} className="object-contain w-6" />
               <p className="font-sans font-semibold text-skin-inverted-dark">
                 {selectedToken1.name}
@@ -135,7 +133,7 @@ function Swap() {
               />
             </div>
           </div>
-          <button className="mt-4 w-full bg-skin-primary text-skin-inverted font-sans font-semibold text-l hover:bg-skin-primary-dark hover:text-skin-inverted py-4 rounded-lg" >
+          <button className="mt-4 w-full bg-skin-primary text-skin-inverted font-sans font-semibold text-l hover:bg-skin-primary-dark hover:text-skin-inverted py-4 rounded-lg">
             Swap
           </button>
         </div>
@@ -144,12 +142,12 @@ function Swap() {
   );
 }
 
-export default Swap;
+export default Liquidity;
 
 const SelectTokenModal = () => {
   const { open, setOpen } = useContext(modalContext);
-  const {selectedTokens, setSelectedTokens} = React.useContext(tokenContext);
- 
+  const { selectedTokens, setSelectedTokens } = React.useContext(tokenContext);
+
   return (
     <div
       className={`absolute  h-screen w-full bg-slate-800/60 z-50 flex items-center justify-center backdrop-blur-sm ${
@@ -181,9 +179,9 @@ const SelectTokenModal = () => {
             <div
               key={index}
               className="flex items-center justify-start gap-4 px-3 py-2 rounded-md font-sans text-skin-inverted-dark hover:bg-slate-400/30">
-                <img src={token.icon} className="object-contain w-6" />
-                <h6>{token.name}</h6>
-                </div>
+              <img src={token.icon} className="object-contain w-6" />
+              <h6>{token.name}</h6>
+            </div>
           ))}
         </div>
       </div>

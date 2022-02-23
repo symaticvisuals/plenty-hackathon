@@ -9,35 +9,46 @@ import {MdOutlineMenu} from "react-icons/md";
 import {IoMdAdd} from "react-icons/io";
 import { MdSettings } from "react-icons/md";
 import { changeMode } from "../App";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   const {mode,setMode} = useContext(changeMode);
-    const [navigationtabs, ]= useState([
-        {
-            name:"Trade"
-        },
-        {
-            name:"Earn"
-        },
-        {
-            name:"Vote"
-        },
-        {
-            name:"More"
-        }
-    ])
+    const [navigationtabs] = useState([
+      {
+        name: "Trade",
+        link: "trade",
+      },
+      {
+        name: "Earn",
+        link: "trade",
+      },
+      {
+        name: "Vote",
+        link: "trade",
+      },
+      {
+        name: "More",
+        link: "trade",
+      },
+    ]);
   return (
     <div className="flex items-center justify-between py-4 px-8 w-full border-b dark:border-0 bg-skin-main dark:bg-skin-background-main fixed">
       <div className="flex items-center justify-start w-full">
-        <img
-          src={mode === "dark" ? LogoWhite : PlentyLogo}
-          alt="Plenty Logo"
-          className="w-20 mr-8"></img>
+        <Link to="/home" className="flex items-center">
+          <img
+            src={mode === "dark" ? LogoWhite : PlentyLogo}
+            alt="Plenty Logo"
+            className="w-20 mr-8"></img>
+        </Link>
         <div className="w-[1px] h-6 bg-skin-body-hr mr-8 md:hidden"></div>
         <div className="flex items-center mr-8 md:hidden">
           {navigationtabs.map((navigationtab, index) => (
             <>
-              <NavigationTabs key={index} name={navigationtab.name} />
+              <NavigationTabs
+                key={index}
+                name={navigationtab.name}
+                link={navigationtab.link}
+              />
             </>
           ))}
         </div>
@@ -49,7 +60,7 @@ function Navbar() {
         </button>
         <div className="w-[1px] h-6 bg-skin-body-hr mr-8 md:hidden"></div>
         <MdSettings
-          className=" text-2xl text-skin-icon-fill md:hidden cursor-pointer"
+          className=" text-2xl text-skin-icon-fill md:hidden cursor-pointer tranform active:rotate-180 transition-all duration-100 "
           onClick={() => {
             setMode(mode === "dark" ? "" : "dark");
           }}
@@ -62,12 +73,15 @@ function Navbar() {
 
 
 
-function NavigationTabs({name}) {
+function NavigationTabs({name, link}) {
     return (
-      <div className="flex items-center mr-8 ">
+      <Link to={link} className="">
+      <div className="flex items-center mr-8 cursor-pointer ">
         <h5 className="font-sans text-skin-body-text">{name}</h5>
-        <MdOutlineKeyboardArrowDown className="text-skin-inverted-dark"/>
+
+       
       </div>
+      </Link>
     );
 }
 export default Navbar;

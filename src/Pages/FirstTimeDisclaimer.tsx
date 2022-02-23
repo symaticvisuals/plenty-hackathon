@@ -1,10 +1,11 @@
 import React from 'react'
 import PlentyLogo from "../assets/images/plenty-beta-logo.svg";
 import  Cookies  from 'js-cookie';
+import { Link } from 'react-router-dom';
 function FirstTimeDisclaimer() {
   const onSubmit = () => {
     Cookies.set('firstTimeDisclaimer', 'true', { expires: 365 });
-    
+    window.location.reload();
   }
   return (
     <div className="flex items-center justify-center h-screen bg-skin-body-fill">
@@ -33,9 +34,11 @@ function FirstTimeDisclaimer() {
             </label>
           </div>
         </form>
+        <Link to="home" className="w-full">
         <button onClick={onSubmit} className="py-3 w-full bg-[#e6e7ea] font-sans font-semibold text-skin-body-text mt-4 rounded-lg">
           Confirm
         </button>
+        </Link>
       </div>
     </div>
   );
