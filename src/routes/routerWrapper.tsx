@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React  from 'react'
 import { BrowserRouter as Router, Navigate, Route, Routes } from 'react-router-dom'
 import FirstTimeDisclaimer from '../Pages/FirstTimeDisclaimer'
 import Home from '../Pages/Home'

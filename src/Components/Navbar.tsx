@@ -1,10 +1,7 @@
 import  { useContext, useState } from "react";
 import PlentyLogo from "../assets/images/plenty-beta-logo.svg";
 import LogoWhite from "../assets/images/logo-white.svg";
-import {
-  // MdOutlineKeyboardArrowUp,
-  MdOutlineKeyboardArrowDown,
-} from "react-icons/md";
+
 import {MdOutlineMenu} from "react-icons/md";
 import {IoMdAdd} from "react-icons/io";
 import { MdSettings } from "react-icons/md";

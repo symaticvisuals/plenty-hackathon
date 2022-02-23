@@ -49,7 +49,7 @@ const modalContext = React.createContext<{
 });
 function Swap() {
   const [activeTab, setActiveTab] = useState(0);
-  const [tokens, setTokens] = useState(tokenValues);
+  const [tokens] = useState(tokenValues);
   const [selectedTokens, setSelectedTokens] = useState({
     from: tokens[0],
     to: tokens[1],
@@ -99,7 +99,7 @@ function Swap() {
             <div className="p-2 bg-skin-main h-10 flex gap-2 items-center justify-center shadow-sm w-48 rounded-md" onClick={()=>{
               setOpen(true);
             }}> 
-              <img src={selectedToken1.icon} className="object-contain w-6" />
+              <img src={selectedToken1.icon} alt="token" className="object-contain w-6" />
               <p className="font-sans font-semibold text-skin-inverted-dark">
                 {selectedToken1.name}
               </p>
@@ -121,7 +121,7 @@ function Swap() {
           </div>
           <div className="p-4 bg-skin-main-muted  border dark:border-0 flex rounded-lg justify-between items-center hover:ring-1 hover:ring-inverted-dark">
             <div className="p-2 bg-skin-main h-10 flex gap-2 items-center justify-center shadow-sm w-auto rounded-md">
-              <img src={selectedToken2.icon} className="object-contain w-6" />
+              <img src={selectedToken2.icon} alt="token2" className="object-contain w-6" />
               <p className="font-sans font-semibold text-skin-inverted-dark">
                 {selectedToken2.name}
               </p>
@@ -148,7 +148,7 @@ export default Swap;
 
 const SelectTokenModal = () => {
   const { open, setOpen } = useContext(modalContext);
-  const {selectedTokens, setSelectedTokens} = React.useContext(tokenContext);
+  // const {selectedTokens, setSelectedTokens} = React.useContext(tokenContext);
  
   return (
     <div
@@ -181,7 +181,7 @@ const SelectTokenModal = () => {
             <div
               key={index}
               className="flex items-center justify-start gap-4 px-3 py-2 rounded-md font-sans text-skin-inverted-dark hover:bg-slate-400/30">
-                <img src={token.icon} className="object-contain w-6" />
+                <img src={token.icon} alt="tokenIcon" className="object-contain w-6" />
                 <h6>{token.name}</h6>
                 </div>
           ))}
