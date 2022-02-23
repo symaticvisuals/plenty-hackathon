@@ -29,7 +29,7 @@ function Navbar() {
       },
     ]);
   return (
-    <div className="flex items-center justify-between py-4 px-8 w-full border-b dark:border-0 bg-skin-main dark:bg-skin-background-main fixed">
+    <div className="flex items-center justify-between py-4 px-8 w-full border-b dark:border-0 bg-skin-main dark:bg-skin-background-main fixed z-50">
       <div className="flex items-center justify-start w-full">
         
           <img
