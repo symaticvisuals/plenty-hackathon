@@ -6,7 +6,7 @@ import {MdOutlineMenu} from "react-icons/md";
 import {IoMdAdd} from "react-icons/io";
 import { MdSettings } from "react-icons/md";
 import { changeMode } from "../App";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 
 function Navbar() {
   const {mode,setMode} = useContext(changeMode);
@@ -31,12 +31,16 @@ function Navbar() {
   return (
     <div className="flex items-center justify-between py-4 px-8 w-full border-b dark:border-0 bg-skin-main dark:bg-skin-background-main fixed">
       <div className="flex items-center justify-start w-full">
-        <Link to="/home" className="flex items-center">
+        
           <img
             src={mode === "dark" ? LogoWhite : PlentyLogo}
             alt="Plenty Logo"
-            className="w-20 mr-8"></img>
-        </Link>
+            className="w-20 mr-8" onClick={
+              () => {
+                <Navigate to="/home" />
+              }
+            }></img>
+        
         <div className="w-[1px] h-6 bg-skin-body-hr mr-8 md:hidden"></div>
         <div className="flex items-center mr-8 md:hidden">
           {navigationtabs.map((navigationtab, index) => (
