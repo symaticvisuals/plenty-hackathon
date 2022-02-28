@@ -6,7 +6,7 @@ import {MdOutlineMenu} from "react-icons/md";
 import {IoMdAdd} from "react-icons/io";
 import { MdSettings } from "react-icons/md";
 import { changeMode } from "../App";
-import { Link, Navigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 
 function Navbar() {
   const {mode,setMode} = useContext(changeMode);
@@ -28,6 +28,7 @@ function Navbar() {
         link: "trade",
       },
     ]);
+    let navigate = useNavigate();
   return (
     <div className="flex items-center justify-between py-4 px-8 w-full border-b dark:border-0 bg-skin-main dark:bg-skin-background-main fixed z-50">
       <div className="flex items-center justify-start w-full">
@@ -35,9 +36,9 @@ function Navbar() {
           <img
             src={mode === "dark" ? LogoWhite : PlentyLogo}
             alt="Plenty Logo"
-            className="w-20 mr-8" onClick={
+            className="w-20 mr-8 cursor-pointer"  onClick={
               () => {
-                <Navigate to="/home" />
+                 navigate("/home", { replace: true });
               }
             }></img>
         

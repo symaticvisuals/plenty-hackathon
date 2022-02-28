@@ -6,6 +6,7 @@ import Cookies from 'js-cookie'
 import MainLayout from '../Pages/MainLayout'
 import Swap from '../Pages/Swap'
 import Trade from '../Pages/Trade'
+import Liquidity from '../Pages/Liquidity'
 function Wrapper() {
   const [firstTimeDisclaimer] = React.useState(Cookies.get('firstTimeDisclaimer'));
   
@@ -20,6 +21,7 @@ function Wrapper() {
               <Route path="home" element={<Home />} />
               <Route path='trade' element={<Trade/>}>
                 <Route path='*' element={<Swap />} />
+                <Route path='liquidity' element={<Liquidity />} />
                 </Route>
             </Route>
           </>

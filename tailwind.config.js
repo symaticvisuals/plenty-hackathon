@@ -74,6 +74,7 @@ module.exports = {
           "primary-muted": "var(--color-background-primary-muted)",
           main: "var(--color-background-main)",
           "main-muted": "var(--color-background-main-muted)",
+          inverted: "var(--color-text-inverted)",
         },
       },
     },

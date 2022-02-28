@@ -48,8 +48,8 @@ function Faqs() {
     },
   ]);
   return (
-    <div className="bg-frontpage h-auto bg-cover md:bg-contain bg-no-repeat bg-bottom w-full px-14 py-4">
-      <h3 className="text-skin-inverted-dark text-3xl font-sans font-semibold text-left">
+    <div className="bg-frontpage h-auto bg-cover md:bg-contain bg-no-repeat bg-bottom w-full px-14 py-4 bg-primary dark:bg-transparent">
+      <h3 className="text-skin-inverted dark:text-skin-inverted-dark text-3xl font-sans font-semibold text-left ">
         Frequently asked<br></br>questions
       </h3>
       <div className="grid grid-cols-2 grid-flow-row gap-6 mt-10 sm:grid-cols-1">
@@ -87,14 +87,14 @@ const Faq = (faq: FaqTypes) => {
         onClick={() => {
           setOpen(!open);
         }}>
-        <h5 className="text-skin-inverted-dark font-sans font-semibold">
+        <h5 className="text-skin-inverted dark:text-skin-inverted-dark font-sans font-semibold">
           {faq.question}
         </h5>
-        <BiChevronDown className="text-skin-inverted-dark text-2xl" />
+        <BiChevronDown className="text-skin-inverted dark:text-skin-inverted-dark text-2xl" />
       </div>
       <div className={`mt-4 ${open === false ? "hidden" : ""}`}>
         {faq.line.map((text, index) => (
-          <p className="text-skin-inverted-dark font-sans mt-2">{text}</p>
+          <p className="text-skin-inverted dark:text-skin-inverted-dark font-sans mt-2">{text}</p>
         ))}
       </div>
     </div>
